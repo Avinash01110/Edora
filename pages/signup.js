@@ -3,7 +3,7 @@ import supabase from "middleware/supabaseClient";
 import Header from "@layouts/partials/Header";
 import Link from "next/link";
 
-export default function Signup() {
+const Signup = () => {
   const [fullName, setFullName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -137,5 +137,7 @@ export default function Signup() {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
+
+export default Signup;
