@@ -1,0 +1,36 @@
+{
+  "site": {
+    "title": "Edora - Where You Can Learn Anything",
+    "base_url": "/",
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.png",
+    "logo_width": "200",
+    "logo_height": "48",
+    "logo_text": "Edora"
+  },
+
+  "settings": {
+    "pagination": 4,
+    "summary_length": 200,
+    "blog_folder": "blogs"
+  },
+
+  "nav_button": {
+    "enable": true,
+    "label": "Login",
+    "link": "/login"
+  },
+
+  "params": {
+    "contact_form_action": "",
+    "tag_manager_id": "",
+    "footer_content": "Welcome to Edora, your gateway to limitless learning possibilities! Here, you can explore a vast array of subjects, skills, and interests.",
+    "copyright": "@ Designed and Developed By Avinash Gupta"
+  },
+
+  "metadata": {
+    "meta_author": "Edora",
+    "meta_image": "",
+    "meta_description": "Where You Can Learn Anything"
+  }
+}

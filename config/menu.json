@@ -1,0 +1,85 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "Blog",
+      "url": "/blogs"
+    },
+    {
+      "name": "Courses",
+      "url": "/courses"
+    },
+    {
+      "name": "Pricing",
+      "url": "/pricing"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
+    },
+    {
+      "name": "About",
+      "url": "/about"
+    },
+    {
+      "name": "FAQ",
+      "url": "/faq"
+    }
+  ],
+  "footer": [
+    {
+      "name": "Company",
+      "menu": [
+        {
+          "text": "Pricing",
+          "url": "/pricing"
+        },
+        {
+          "text": "Quick Start",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "menu": [
+        {
+          "text": "Courses",
+          "url": "/courses"
+        },
+        {
+          "text": "Platform",
+          "url": "#"
+        },
+        {
+          "text": "Pricing",
+          "url": "/pricing"
+        }
+      ]
+    },
+    {
+      "name": "Support",
+      "menu": [
+        {
+          "text": "FAQ",
+          "url": "/faq"
+        },
+        {
+          "text": "Contact Us",
+          "url": "/contact"
+        },
+        {
+          "text": "Privacy Policy",
+          "url": "#"
+        },
+        {
+          "text": "Terms & Conditions",
+          "url": "#"
+        }
+      ]
+    }
+  ]
+}
