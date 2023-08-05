@@ -28,7 +28,7 @@ const signup = () => {
         email: email,
         password: password,
         options: {
-          emailRedirectTo: `${process.env.NEXT_PUBLIC_HOST}/login`,
+          emailRedirectTo: "edora.vercel.app/login",
           data: {
             full_name: fullName,
           },
