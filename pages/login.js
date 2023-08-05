@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import supabase from "middleware/supabaseClient";
 import Header from "@layouts/partials/Header";
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-useRouter
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-const login = () => {
+const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [accessToken, setAccessToken] = useState();
@@ -13,9 +12,9 @@ const login = () => {
 
   useEffect(() => {
     if (accessToken) {
-    sessionStorage.setItem("token", accessToken)
+      sessionStorage.setItem("token", accessToken);
     }
-  }, [])
+  }, []);
 
   const handleOnchange = (e) => {
     if (e.target.name == "email") {
@@ -28,22 +27,22 @@ const login = () => {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     try {
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
-    })
-    setAccessToken(data.session.access_token)
-    sessionStorage.setItem("token", data.session.access_token)
-    alert("login")
-    router.push("/");
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+      });
+      setAccessToken(data.session.access_token);
+      sessionStorage.setItem("token", data.session.access_token);
+      alert("login");
+      router.push("/");
     } catch (error) {
-        alert(error.message)
+      alert(error.message);
     }
   };
   return (
     <>
-    <Header accessToken={accessToken}/>
-     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <Header accessToken={accessToken} />
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-10 w-auto"
@@ -58,12 +57,15 @@ const login = () => {
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={handleOnSubmit}>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
                 Email address
               </label>
               <div className="mt-2">
                 <input
-                onChange={handleOnchange}
+                  onChange={handleOnchange}
                   id="email"
                   name="email"
                   type="email"
@@ -76,13 +78,16 @@ const login = () => {
 
             <div>
               <div className="flex items-center justify-between">
-                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
                   Password
                 </label>
               </div>
               <div className="mt-2">
                 <input
-                onChange={handleOnchange}
+                  onChange={handleOnchange}
                   id="password"
                   name="password"
                   type="password"
@@ -104,15 +109,18 @@ const login = () => {
           </form>
 
           <p className="mt-10 text-center text-sm text-gray-500">
-            Not a member?{' '}
-            <Link href="/signup" className="font-semibold leading-6 text-primary hover:text-blue-400">
+            Not a member?{" "}
+            <Link
+              href="/signup"
+              className="font-semibold leading-6 text-primary hover:text-blue-400"
+            >
               Create a new account
             </Link>
           </p>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default login
+export default Login;
