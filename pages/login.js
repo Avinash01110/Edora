@@ -3,8 +3,11 @@ import supabase from "middleware/supabaseClient";
 import Header from "@layouts/partials/Header";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Flip} from 'react-toastify';
 
-const Login = () => {
+const login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [accessToken, setAccessToken] = useState();
@@ -33,10 +36,32 @@ const Login = () => {
       });
       setAccessToken(data.session.access_token);
       sessionStorage.setItem("token", data.session.access_token);
-      alert("login");
-      router.push("/");
+     toast.success('Congratulations! You have successfully logged in.', {
+        transition : Flip,
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+      setTimeout(() => {
+        router.push("/");
+      }, 3000);
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message, {
+        transition : Flip,
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
     }
   };
   return (
@@ -123,4 +148,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default login;

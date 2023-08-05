@@ -41,8 +41,10 @@ const Courses = () => {
     }
   };
 
-  const lectures = (slug) => {
-    if (sessionStorage.getItem("token")) {
+  const lectures = (slug,type) => {
+    if (sessionStorage.getItem("token") && type === "premium"){
+      router.push(`/courses/${slug}`);
+    }else if(type === "free"){
       router.push(`/courses/${slug}`);
     }
   };
@@ -75,7 +77,7 @@ const Courses = () => {
                   results.map((items, i) => (
                     <div
                       onClick={() => {
-                        lectures(items.course_name);
+                        lectures(items.course_name,items.course_type);
                       }}
                       key={i}
                       className="flex w-full cursor-pointer items-center rounded-lg p-3 pl-4 hover:bg-gray-300"
@@ -121,7 +123,7 @@ const Courses = () => {
                       {item.course_type == "free" && (
                         <button
                           onClick={() => {
-                            lectures(item.course_name);
+                            lectures(item.course_name,item.course_type);
                           }}
                           type="button"
                           className="focus:bg-primary-600 active:bg-primary-700 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-300 ease-in-out hover:scale-105 hover:bg-blue-400 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
@@ -135,7 +137,7 @@ const Courses = () => {
                         sessionStorage.getItem("token") && (
                           <button
                             onClick={() => {
-                              lectures(item.course_name);
+                              lectures(item.course_name,item.course_type);
                             }}
                             type="button"
                             className="focus:bg-primary-600 active:bg-primary-700 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-300 ease-in-out hover:scale-105 hover:bg-blue-400 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"

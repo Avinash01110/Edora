@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Header from "@layouts/partials/Header";
 import Footer from "@layouts/partials/Footer";
 
-const Post = () => {
+const post = () => {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -74,4 +74,4 @@ const Post = () => {
   );
 };
 
-export default Post;
+export default post;

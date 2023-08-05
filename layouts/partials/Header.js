@@ -6,6 +6,9 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import supabase from "middleware/supabaseClient";
 import { useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Flip} from 'react-toastify';
 
 const Header = ({ accessToken }) => {
   const [profile, setProfile] = useState("invisible");
@@ -36,6 +39,17 @@ const Header = ({ accessToken }) => {
     toggle_profile();
     if (sessionStorage.getItem("token")) {
       sessionStorage.removeItem("token");
+      toast.success('Successfully Signed out!!', {
+        transition : Flip,
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
       router.push("/");
       setTimeout(() => {
         router.reload();

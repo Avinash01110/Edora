@@ -5,7 +5,8 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import TagManager from "react-gtm-module";
 import "styles/style.scss";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = ({ Component, pageProps }) => {
   // default theme setup
@@ -18,12 +19,12 @@ const App = ({ Component, pageProps }) => {
 
   useEffect(() => {
     if (sessionStorage.getItem("token")) {
-    sessionStorage.setItem("token", sessionStorage.getItem("token"))
-    setTimeout(() => {  
-      setAccessToken(sessionStorage.getItem("token"))
-    }, 2000);
+      sessionStorage.setItem("token", sessionStorage.getItem("token"));
+      setTimeout(() => {
+        setAccessToken(sessionStorage.getItem("token"));
+      }, 2000);
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     fetch(
@@ -66,6 +67,7 @@ const App = ({ Component, pageProps }) => {
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
       </Head>
+      <ToastContainer/>
       <Component {...pageProps} />
     </>
   );

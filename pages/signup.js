@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import supabase from "middleware/supabaseClient";
 import Header from "@layouts/partials/Header";
 import Link from "next/link";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Flip} from 'react-toastify';
 
-const Signup = () => {
+const signup = () => {
   const [fullName, setFullName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -31,9 +34,29 @@ const Signup = () => {
           },
         },
       });
-      alert("sent");
+      toast.success("Confirmation Email is sent", {
+        transition : Flip,
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message, {
+        transition : Flip,
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
     }
   };
   return (
@@ -140,4 +163,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default signup;
