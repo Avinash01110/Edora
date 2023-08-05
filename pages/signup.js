@@ -28,7 +28,6 @@ const signup = () => {
         email: email,
         password: password,
         options: {
-          emailRedirectTo: "edora.vercel.app/login",
           data: {
             full_name: fullName,
           },
